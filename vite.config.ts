@@ -154,11 +154,29 @@ function vitePluginStorageProxy(): Plugin {
   return {
     name: "manus-storage-proxy",
     configureServer(server: ViteDevServer) {
-      server.middlewares.use("/manus-storage", async (req, res) => {
-        const key = req.url?.replace(/^\//, "");
+      server.middlewares.use("/manus-storage", async (req, res, next) => {
+        const key = req.url?.replace(/^\//, "").split("?")[0];
         if (!key) {
           res.writeHead(400, { "Content-Type": "text/plain" });
           res.end("Missing storage key");
+          return;
+        }
+
+        // Serve a local file from public/manus-storage if present (local dev).
+        const localPath = path.join(PROJECT_ROOT, "client", "public", "manus-storage", key);
+        if (fs.existsSync(localPath) && fs.statSync(localPath).isFile()) {
+          const ext = path.extname(localPath).toLowerCase();
+          const mime: Record<string, string> = {
+            ".jpg": "image/jpeg",
+            ".jpeg": "image/jpeg",
+            ".png": "image/png",
+            ".webp": "image/webp",
+            ".gif": "image/gif",
+            ".svg": "image/svg+xml",
+            ".avif": "image/avif",
+          };
+          res.writeHead(200, { "Content-Type": mime[ext] || "application/octet-stream" });
+          fs.createReadStream(localPath).pipe(res);
           return;
         }
 
