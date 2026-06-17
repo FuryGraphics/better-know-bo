@@ -2,30 +2,21 @@
    BETTER KNOW BO — Contact Page
    ============================================================ */
 
-import { useState } from "react";
+import { useEffect } from "react";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import { Phone, Mail, MapPin, Clock, CheckCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    city: "",
-    caseType: "",
-    description: "",
-  });
-
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  }
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setSubmitted(true);
-  }
+  // Load the LeadConnector form embed script (handles iframe auto-resize)
+  useEffect(() => {
+    const SRC = "https://link.msgsndr.com/js/form_embed.js";
+    if (document.querySelector(`script[src="${SRC}"]`)) return;
+    const script = document.createElement("script");
+    script.src = SRC;
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#0f0f18" }}>
@@ -105,111 +96,23 @@ export default function ContactPage() {
                   Free Consultation Form
                 </h2>
 
-                {submitted ? (
-                  <div className="p-8 text-center" style={{ backgroundColor: "#1a1a2e", border: "1px solid #2a2a3e" }}>
-                    <CheckCircle size={48} className="text-[#F97316] mx-auto mb-4" />
-                    <h3 className="text-2xl font-bold text-white mb-3" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-                      Message Received
-                    </h3>
-                    <p className="text-white/60">
-                      Thank you for reaching out. Bo will contact you promptly — typically within hours. For urgent matters, call directly: <a href="tel:6159698904" className="text-[#F97316] font-semibold">615-969-8904</a>.
-                    </p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-semibold tracking-widest uppercase text-white/40 mb-2">Full Name *</label>
-                        <input
-                          type="text"
-                          name="name"
-                          required
-                          value={form.name}
-                          onChange={handleChange}
-                          placeholder="Your full name"
-                          className="w-full px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#F97316] transition-colors"
-                          style={{ backgroundColor: "#1a1a2e", border: "1px solid #2a2a3e" }}
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-xs font-semibold tracking-widest uppercase text-white/40 mb-2">Phone Number *</label>
-                        <input
-                          type="tel"
-                          name="phone"
-                          required
-                          value={form.phone}
-                          onChange={handleChange}
-                          placeholder="Your phone number"
-                          className="w-full px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#F97316] transition-colors"
-                          style={{ backgroundColor: "#1a1a2e", border: "1px solid #2a2a3e" }}
-                        />
-                      </div>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-semibold tracking-widest uppercase text-white/40 mb-2">Email Address</label>
-                        <input
-                          type="email"
-                          name="email"
-                          value={form.email}
-                          onChange={handleChange}
-                          placeholder="Your email"
-                          className="w-full px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#F97316] transition-colors"
-                          style={{ backgroundColor: "#1a1a2e", border: "1px solid #2a2a3e" }}
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-xs font-semibold tracking-widest uppercase text-white/40 mb-2">City / County</label>
-                        <input
-                          type="text"
-                          name="city"
-                          value={form.city}
-                          onChange={handleChange}
-                          placeholder="Nashville, Franklin, etc."
-                          className="w-full px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#F97316] transition-colors"
-                          style={{ backgroundColor: "#1a1a2e", border: "1px solid #2a2a3e" }}
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-xs font-semibold tracking-widest uppercase text-white/40 mb-2">Type of Case *</label>
-                      <select
-                        name="caseType"
-                        required
-                        value={form.caseType}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 text-sm text-white focus:outline-none focus:border-[#F97316] transition-colors"
-                        style={{ backgroundColor: "#1a1a2e", border: "1px solid #2a2a3e" }}
-                      >
-                        <option value="" disabled>Select case type</option>
-                        <option value="criminal-defense">Criminal Defense</option>
-                        <option value="dui-dwi">DUI / DWI</option>
-                        <option value="personal-injury">Personal Injury</option>
-                        <option value="truck-wreck">Truck Wreck</option>
-                        <option value="motorcycle-accident">Motorcycle Accident</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-xs font-semibold tracking-widest uppercase text-white/40 mb-2">Brief Description</label>
-                      <textarea
-                        name="description"
-                        value={form.description}
-                        onChange={handleChange}
-                        rows={4}
-                        placeholder="Briefly describe your situation..."
-                        className="w-full px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#F97316] transition-colors resize-none"
-                        style={{ backgroundColor: "#1a1a2e", border: "1px solid #2a2a3e" }}
-                      />
-                    </div>
-                    <button type="submit" className="btn-primary w-full justify-center py-4 text-sm">
-                      Submit — Free Consultation
-                    </button>
-                    <p className="text-xs text-white/30 leading-relaxed">
-                      By submitting, you agree to be contacted by our firm by phone, text, or email. This does not create an attorney-client relationship.
-                    </p>
-                  </form>
-                )}
+                <iframe
+                  src="https://api.leadconnectorhq.com/widget/form/xFYPVss61UwFdqxtZWxS"
+                  style={{ width: "100%", height: "503px", border: "none", borderRadius: "10px" }}
+                  id="inline-xFYPVss61UwFdqxtZWxS"
+                  data-layout="{'id':'INLINE'}"
+                  data-trigger-type="alwaysShow"
+                  data-trigger-value=""
+                  data-activation-type="alwaysActivated"
+                  data-activation-value=""
+                  data-deactivation-type="neverDeactivate"
+                  data-deactivation-value=""
+                  data-form-name="Website Form (Better Know Bo)"
+                  data-height="503"
+                  data-layout-iframe-id="inline-xFYPVss61UwFdqxtZWxS"
+                  data-form-id="xFYPVss61UwFdqxtZWxS"
+                  title="Website Form (Better Know Bo)"
+                />
               </div>
             </div>
           </div>
