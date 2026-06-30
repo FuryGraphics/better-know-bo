@@ -34,6 +34,10 @@ import LebanonPage from "./pages/areas/Lebanon";
 import MountJulietPage from "./pages/areas/MountJuliet";
 import AshlandCityPage from "./pages/areas/AshlandCity";
 import DicksonPage from "./pages/areas/Dickson";
+import MurfreesboroPage from "./pages/areas/Murfreesboro";
+import SmyrnaPage from "./pages/areas/Smyrna";
+import ColumbiaPage from "./pages/areas/Columbia";
+import MountPleasantPage from "./pages/areas/MountPleasant";
 
 function Router() {
   return (
@@ -66,6 +70,10 @@ function Router() {
       <Route path="/pg/mount-juliet-criminal-defense-lawyer" component={MountJulietPage} />
       <Route path="/pg/ashland-city-criminal-defense-lawyer" component={AshlandCityPage} />
       <Route path="/pg/dickson-criminal-defense-lawyer" component={DicksonPage} />
+      <Route path="/pg/murfreesboro-criminal-defense-lawyer" component={MurfreesboroPage} />
+      <Route path="/pg/smyrna-criminal-defense-lawyer" component={SmyrnaPage} />
+      <Route path="/pg/columbia-criminal-defense-lawyer" component={ColumbiaPage} />
+      <Route path="/pg/mount-pleasant-criminal-defense-lawyer" component={MountPleasantPage} />
 
       {/* 404 */}
       <Route path="/404" component={NotFound} />

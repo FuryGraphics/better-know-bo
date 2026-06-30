@@ -339,6 +339,10 @@ export function ServiceAreaBanner() {
     { label: "Mount Juliet", href: "/pg/mount-juliet-criminal-defense-lawyer" },
     { label: "Ashland City", href: "/pg/ashland-city-criminal-defense-lawyer" },
     { label: "Dickson", href: "/pg/dickson-criminal-defense-lawyer" },
+    { label: "Murfreesboro", href: "/pg/murfreesboro-criminal-defense-lawyer" },
+    { label: "Smyrna", href: "/pg/smyrna-criminal-defense-lawyer" },
+    { label: "Columbia", href: "/pg/columbia-criminal-defense-lawyer" },
+    { label: "Mount Pleasant", href: "/pg/mount-pleasant-criminal-defense-lawyer" },
   ];
 
   return (
@@ -349,7 +353,7 @@ export function ServiceAreaBanner() {
           className="text-2xl md:text-3xl font-bold text-white mb-6"
           style={{ fontFamily: "'Cormorant Garamond', serif" }}
         >
-          Serving Davidson, Williamson, Wilson, Cheatham &amp; Dickson Counties
+          Serving Davidson, Williamson, Wilson, Cheatham, Dickson, Rutherford &amp; Maury Counties
         </h2>
         <div className="flex flex-wrap justify-center gap-3">
           {cities.map((c) => (

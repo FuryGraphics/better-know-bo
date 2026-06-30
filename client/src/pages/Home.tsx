@@ -186,7 +186,7 @@ export default function HomePage() {
                 number: "01",
                 title: "Criminal Defense",
                 description:
-                  "From misdemeanors to serious felonies — assault, drug charges, weapons, and more. Bo fights for dismissal, not just plea deals.",
+                  "From misdemeanors to serious felonies — drug charges, assault, rape & sexual assault, weapons, and more. Bo fights for dismissal, not just plea deals.",
                 href: "/pg/criminal-defense-nashville",
               },
               {

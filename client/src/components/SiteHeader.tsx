@@ -13,6 +13,9 @@ const practiceAreas = [
   { label: "Personal Injury", href: "/pg/personal-injury-nashville" },
   { label: "Truck Wrecks", href: "/pg/truck-wreck-attorney-nashville" },
   { label: "Motorcycle Accidents", href: "/pg/motorcycle-accident-attorney-nashville" },
+  { label: "Drug Charges", href: "/pg/criminal-defense-nashville" },
+  { label: "Assault & Aggravated Assault", href: "/pg/criminal-defense-nashville" },
+  { label: "Rape & Sexual Assault", href: "/pg/criminal-defense-nashville" },
 ];
 
 const areasServed = [
@@ -23,6 +26,10 @@ const areasServed = [
   { label: "Mount Juliet", href: "/pg/mount-juliet-criminal-defense-lawyer" },
   { label: "Ashland City", href: "/pg/ashland-city-criminal-defense-lawyer" },
   { label: "Dickson", href: "/pg/dickson-criminal-defense-lawyer" },
+  { label: "Murfreesboro", href: "/pg/murfreesboro-criminal-defense-lawyer" },
+  { label: "Smyrna", href: "/pg/smyrna-criminal-defense-lawyer" },
+  { label: "Columbia", href: "/pg/columbia-criminal-defense-lawyer" },
+  { label: "Mount Pleasant", href: "/pg/mount-pleasant-criminal-defense-lawyer" },
 ];
 
 function DropdownMenu({

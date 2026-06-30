@@ -46,6 +46,7 @@ export default function CriminalDefensePage() {
                 {[
                   "Assault & Aggravated Assault",
                   "Drug Possession & Drug Trafficking",
+                  "Rape & Sexual Assault Charges",
                   "DUI / DWI (see dedicated page)",
                   "Weapons Charges",
                   "Theft, Burglary & Robbery",

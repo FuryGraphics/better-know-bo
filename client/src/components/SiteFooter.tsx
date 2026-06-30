@@ -122,6 +122,10 @@ export default function SiteFooter() {
                 { label: "Mount Juliet", href: "/pg/mount-juliet-criminal-defense-lawyer" },
                 { label: "Ashland City", href: "/pg/ashland-city-criminal-defense-lawyer" },
                 { label: "Dickson", href: "/pg/dickson-criminal-defense-lawyer" },
+                { label: "Murfreesboro", href: "/pg/murfreesboro-criminal-defense-lawyer" },
+                { label: "Smyrna", href: "/pg/smyrna-criminal-defense-lawyer" },
+                { label: "Columbia", href: "/pg/columbia-criminal-defense-lawyer" },
+                { label: "Mount Pleasant", href: "/pg/mount-pleasant-criminal-defense-lawyer" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link
